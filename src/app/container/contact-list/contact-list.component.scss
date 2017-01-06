@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  background: #d1d1d1;
+}
+
+.tp-avatar {
+  border-radius: 50%;
+}
+
+.tp-username {
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px;
+  &.active {
+    background-color: #23262d;
+    color: #fff;
+  }
+}
+.tp-block {
+  &--1-4 {
+    width: 25%;
+  }
+  &--flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.tp-special {
+  margin-left: 10px;
+}

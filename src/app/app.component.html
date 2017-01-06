@@ -1,0 +1,20 @@
+<h1>
+  {{title}}
+</h1>
+
+<div>
+  <input type="text" (keyup.enter)="onInput($event)">
+  <button (click)="onClick()">Button...</button>
+</div>
+
+<ul>
+  <li *ngFor="let message of messages">
+    {{ message }}
+  </li>
+</ul>
+
+<p>
+  data from App Component
+</p>
+
+<tp-contact-list></tp-contact-list>
