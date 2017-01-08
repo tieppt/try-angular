@@ -3,8 +3,8 @@
 </h1>
 
 <div>
-  <input type="text" (keyup.enter)="onClick()" [(ngModel)]="message">
-  <button (click)="onClick()">Button...</button>
+  <input type="text" (keyup.enter)="updateMesssages()" [(ngModel)]="message">
+  <button (click)="updateMesssages()">Button...</button>
 </div>
 
 <ul>

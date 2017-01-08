@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'Contact Application!';
   messages: string[] = [];
   message: string = '';
-  onClick() {
+  updateMesssages() {
     this.messages.push(this.message);
     this.message = '';
   }
