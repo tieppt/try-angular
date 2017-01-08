@@ -7,12 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Contact Application!';
-  messages = [];
+  messages: string[] = [];
+  message: string = '';
   onClick() {
-    console.log('Clicked');
-  }
-  onInput(event) {
-    console.log(event);
-    this.messages.push(event.target.value);
+    this.messages.push(this.message);
+    this.message = '';
   }
 }

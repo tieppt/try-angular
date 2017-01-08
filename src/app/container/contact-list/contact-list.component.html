@@ -11,8 +11,7 @@
   <div *ngFor="let contact of contacts; let i = index; let fst = first; trackBy: contactTrackByFn" class="tp-block--1-4" [ngClass]="{'tp-special': fst}">
     <h3 class="tp-username" [style.fontSize.em]="printable ? styleH3 : 1.5" [ngStyle]="ngStyleH3">{{ contact.name }} item no. {{ i }}</h3>
     <div>
-      <tp-switches [checked]="contact.avatar?.round"
-      (checkedChange)="switchesValueChange($event, i)">
+      <tp-switches [(checked)]="contact.avatar.round">
       </tp-switches>
       <tp-contact-image-detail
         [avatar-url]="contact.avatar?.url"

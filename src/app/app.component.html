@@ -3,7 +3,7 @@
 </h1>
 
 <div>
-  <input type="text" (keyup.enter)="onInput($event)">
+  <input type="text" (keyup.enter)="onClick()" [(ngModel)]="message">
   <button (click)="onClick()">Button...</button>
 </div>
 
