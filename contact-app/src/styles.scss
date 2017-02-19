@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  box-sizing: border-box;
+}
+* {
+  box-sizing: inherit;
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+.tp-app {
+  &__jumbotron {
+    margin-top: 120px;
+  }
+  &__content {
+    background: #f7f7f7;
+    padding: 15px;
+  }
+}
