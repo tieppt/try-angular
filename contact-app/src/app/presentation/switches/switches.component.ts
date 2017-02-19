@@ -17,7 +17,7 @@ export class SwitchesComponent implements OnInit {
     this.checked = !this.checked;
   }
   emitChangeValue(event) {
-    // event.stopPropagation();
+    event.stopPropagation();
     this.change.emit(event.target.checked);
   }
 }
