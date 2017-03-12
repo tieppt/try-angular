@@ -1,0 +1,6 @@
+<header class="collapsible-header" (click)="toggleSelected()">
+  {{ title }}
+</header>
+<section class="collapsible-body" [class.active]="selected">
+  <ng-content></ng-content>
+</section>

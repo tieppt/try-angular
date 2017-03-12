@@ -29,24 +29,16 @@
        role="button">View more articles &raquo;</a>
   </div>
   <div class="tp-app__content">
-    <tp-card>
-      <header class="tp-card__title">Title</header>
-      <footer class="tp-card__footer">
-        <button class="tp-button btn btn-danger">Action</button>
-      </footer>
-      <div class="tp-card__content">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, molestiae.
-      </div>
-    </tp-card>
-    <tp-card>
-      <header class="tp-card__title">Title 2</header>
-      <div class="tp-card__content">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid blanditiis culpa eaque impedit iure laborum
-        officiis qui quo reiciendis voluptate!
-      </div>
-      <footer class="tp-card__footer">
-        <button class="tp-button btn btn-success">Action</button>
-      </footer>
-    </tp-card>
+    Lesson content
+    <div>
+      <tp-collapse-group [multiple]="false">
+        <tp-collapse [title]="'First block'" [selected]="true">
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </span>
+        </tp-collapse>
+        <tp-collapse [title]="'Second block'" [selected]="false">
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </span>
+        </tp-collapse>
+      </tp-collapse-group>
+    </div>
   </div>
 </div>

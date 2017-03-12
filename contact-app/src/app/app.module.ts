@@ -5,11 +5,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
+import { CollapseGroupComponent } from './collapse-group/collapse-group.component';
+import { CollapseComponent } from './collapse/collapse.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    CollapseGroupComponent,
+    CollapseComponent
   ],
   imports: [
     BrowserModule,
