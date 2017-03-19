@@ -32,11 +32,11 @@
     Lesson content
     <div>
       <tp-collapse-group [multiple]="false">
-        <tp-collapse [title]="'First block'" [selected]="true">
-          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </span>
-        </tp-collapse>
-        <tp-collapse [title]="'Second block'" [selected]="false">
-          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </span>
+        <tp-collapse
+          *ngFor="let post of posts" [title]="post.title" [selected]="false">
+          <div>
+            {{ post.body }}
+          </div>
         </tp-collapse>
       </tp-collapse-group>
     </div>
