@@ -34,7 +34,7 @@
       <tp-card>
         <header class="tp-card__title"><h2>User info:</h2></header>
         <section class="tp-card__content">
-          <p>Name: {{ user.name | uppercase }}</p>
+          <p>Name: {{ user.name | titlecase }}</p>
           <div>
             Birthday: {{ user.dob | date:'fullDate' | lowercase }}
           </div>

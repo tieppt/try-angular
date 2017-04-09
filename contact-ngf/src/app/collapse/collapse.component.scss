@@ -1,0 +1,31 @@
+$redColour: #E57373;
+
+tp-collapse {
+  display: block;
+  &:last-child {
+    .collapsible-body {
+      border-bottom: 2px solid $redColour;
+    }
+  }
+}
+
+.collapsible-header {
+  display: block;
+  cursor: pointer;
+  min-height: 3rem;
+  line-height: 3rem;
+  padding: 0 1rem;
+  background-color: #f44336;
+  color: #fff;
+  border-bottom: 1px solid $redColour;
+  user-select: none;
+}
+
+.collapsible-body {
+  display: none;
+  border-bottom: 1px solid #ddd;
+  padding: 2rem;
+  &.active {
+    display: block;
+  }
+}
