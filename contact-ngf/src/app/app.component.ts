@@ -6,15 +6,9 @@ import { POSTS } from './services/post';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  user: any = {
-    name: "Tiep phan",
-    dob: new Date('01-01-1990')
-  }
-  temp = 35;
   ngOnInit() {
-    setTimeout(() => {
-      this.user.name = 'Tiep Phan tuan';
-      this.user.dob.setDate(11);
-    }, 1000);
+  }
+  onSubmit() {
+    // Do something awesome
   }
 }

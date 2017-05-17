@@ -1,6 +1,6 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="#">Thử Nghiệm Với Angular</a>
@@ -10,7 +10,7 @@
         <a class="nav-link" target="_blank" href="http://www.tiepphan.com">Lập Trình Thật Kỳ Diệu <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" target="_blank" href="http://www.tiepphan.com/category/web/lap-trinh-angular-2/">Lập trình
+        <a class="nav-link" target="_blank" href="http://www.tiepphan.com/category/web/lap-trinh-angular/">Lập trình
           Angular</a>
       </li>
     </ul>
@@ -23,30 +23,42 @@
     <p class="lead">
       Series được mang đến bởi Tiệp Phan, giới thiệu kỹ thuật lập trình với Angular version 2+
     </p>
-    <a class="btn btn-lg btn-success"
-       href="http://www.tiepphan.com/category/web/lap-trinh-angular-2/"
-       target="_blank"
-       role="button">View more articles &raquo;</a>
+    <a class="btn btn-lg btn-success" href="http://www.tiepphan.com/category/web/lap-trinh-angular/" target="_blank" role="button">View more articles &raquo;</a>
   </div>
   <div class="tp-app__content">
-    Lesson content
-    <div>
-      <tp-card>
-        <header class="tp-card__title"><h2>User info:</h2></header>
-        <section class="tp-card__content">
-          <p>Name: {{ user.name | titlecase }}</p>
-          <div>
-            Birthday: {{ user.dob | date:'fullDate' | lowercase }}
+    <h2 class="text-center">Angular Template Driven Form</h2>
+    <form novalidate (ngSubmit)="onSubmit()" class="row justify-content-md-center">
+      <div class="col-md-8">
+        <div class="form-group row">
+          <label for="example-text-input" class="col-2 col-form-label">Name:</label>
+          <div class="col-10">
+            <input class="form-control" type="text" id="example-text-input">
           </div>
-          <pre>
-            json:
-            {{ user | json }}
-          </pre>
-        </section>
-        <footer class="tp-card__footer">
-          Temperature {{ temp | tempConverter:true:'F' }}
-        </footer>
-      </tp-card>
-    </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-email-input" class="col-2 col-form-label">Email:</label>
+          <div class="col-10">
+            <input class="form-control" type="email" id="example-email-input">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-url-input" class="col-2 col-form-label">Social URL:</label>
+          <div class="col-10">
+            <input class="form-control" type="url" id="example-url-input">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-tel-input" class="col-2 col-form-label">Telephone:</label>
+          <div class="col-10">
+            <input class="form-control" type="tel" id="example-tel-input">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-10 offset-2">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
