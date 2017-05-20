@@ -8,6 +8,7 @@ import { CardComponent } from './card/card.component';
 import { CollapseGroupComponent } from './collapse-group/collapse-group.component';
 import { CollapseComponent } from './collapse/collapse.component';
 import { TempConverterPipe } from './pipes/temp-converter.pipe';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TempConverterPipe } from './pipes/temp-converter.pipe';
     CardComponent,
     CollapseGroupComponent,
     CollapseComponent,
-    TempConverterPipe
+    TempConverterPipe,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
