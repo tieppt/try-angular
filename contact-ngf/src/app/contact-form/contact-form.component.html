@@ -1,46 +1,59 @@
 <h2 class="text-center">Angular Template-Driven Forms</h2>
-<form novalidate (ngSubmit)="onSubmit()" class="row justify-content-md-center">
+<form novalidate #form="ngForm" (ngSubmit)="onSubmit(form)" class="row justify-content-md-center" method="post">
   <div class="col-md-8">
     <div class="form-group row">
       <label for="example-text-input" class="col-md-2 col-form-label">Name:</label>
       <div class="col-md-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="example-text-input"
+          #contactName="ngModel"
+          [(ngModel)]="contact.contactName"
+          name="contactName" required>
       </div>
+    </div>
+    <div class="col alert alert-danger" role="alert"
+      *ngIf="contactName?.errors?.required && contactName?.touched">
+      Name is required!
     </div>
     <div class="form-group row">
       <label for="example-email-input" class="col-md-2 col-form-label">Email:</label>
       <div class="col-md-10">
-        <input class="form-control" type="email" id="example-email-input">
+        <input class="form-control" type="email" id="example-email-input" ngModel name="email">
       </div>
     </div>
-    <div class="form-group row">
-      <label for="example-url-fb" class="col-md-2 col-form-label">Facebook:</label>
-      <div class="col-md-10">
-        <input class="form-control" type="url" id="example-url-fb">
+    <fieldset ngModelGroup="social">
+      <div class="form-group row">
+        <label for="example-url-fb" class="col-md-2 col-form-label">Facebook:</label>
+        <div class="col-md-10">
+          <input class="form-control" type="url" id="example-url-fb" ngModel name="facebook">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-url-twt" class="col-md-2 col-form-label">Twitter:</label>
-      <div class="col-md-10">
-        <input class="form-control" type="url" id="example-url-twt">
+      <div class="form-group row">
+        <label for="example-url-twt" class="col-md-2 col-form-label">Twitter:</label>
+        <div class="col-md-10">
+          <input class="form-control" type="url" id="example-url-twt" ngModel name="twitter">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-url-web" class="col-md-2 col-form-label">Website:</label>
-      <div class="col-md-10">
-        <input class="form-control" type="url" id="example-url-web">
+      <div class="form-group row">
+        <label for="example-url-web" class="col-md-2 col-form-label">Website:</label>
+        <div class="col-md-10">
+          <input class="form-control" type="url" id="example-url-web" ngModel name="website">
+        </div>
       </div>
-    </div>
+    </fieldset>
     <div class="form-group row">
       <label for="example-tel-input" class="col-md-2 col-form-label">Tel:</label>
       <div class="col-md-10">
-        <input class="form-control" type="tel" id="example-tel-input">
+        <input class="form-control" type="tel" id="example-tel-input" ngModel name="tel">
       </div>
     </div>
     <div class="form-group row">
       <div class="col-md-10 offset-md-2">
-        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
       </div>
     </div>
   </div>
 </form>
+<p>Form value:</p>
+<pre>{{ form.value | json }}</pre>
+<p>Form contactName errors:</p>
+<pre>{{ form.controls.contactName?.errors | json }}</pre>
