@@ -10,6 +10,7 @@ import { CollapseComponent } from './collapse/collapse.component';
 import { TempConverterPipe } from './pipes/temp-converter.pipe';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ContactReactiveFormComponent } from './contact-reactive-form/contact-re
     CollapseComponent,
     TempConverterPipe,
     ContactFormComponent,
-    ContactReactiveFormComponent
+    ContactReactiveFormComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
