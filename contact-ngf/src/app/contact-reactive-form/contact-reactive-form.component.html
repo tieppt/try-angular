@@ -1,39 +1,56 @@
-<form novalidate (ngSubmit)="onSubmit()" class="row justify-content-md-center">
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="rfContact" class="row justify-content-md-center">
   <div class="col-md-8">
     <div class="form-group row">
       <label for="example-text-input" class="col-md-2 col-form-label">Name:</label>
       <div class="col-md-10">
-        <input class="form-control" type="text" id="example-text-input">
+        <input class="form-control" type="text" id="example-text-input" formControlName="contactName">
       </div>
     </div>
+    <div class="col alert alert-danger" role="alert"
+      *ngIf="rfContact.get('contactName')?.errors?.required && rfContact.get('contactName')?.touched">
+      Name is required!
+    </div>
+
     <div class="form-group row">
       <label for="example-email-input" class="col-md-2 col-form-label">Email:</label>
       <div class="col-md-10">
-        <input class="form-control" type="email" id="example-email-input">
+        <input class="form-control" type="email" id="example-email-input" formControlName="email">
       </div>
     </div>
-    <div class="form-group row">
-      <label for="example-url-fb" class="col-md-2 col-form-label">Facebook:</label>
-      <div class="col-md-10">
-        <input class="form-control" type="url" id="example-url-fb">
+    <fieldset formGroupName="social">
+      <div class="form-group row">
+        <label for="example-url-fb" class="col-md-2 col-form-label">Facebook:</label>
+        <div class="col-md-10">
+          <input class="form-control" type="url" id="example-url-fb" formControlName="facebook">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-url-twt" class="col-md-2 col-form-label">Twitter:</label>
-      <div class="col-md-10">
-        <input class="form-control" type="url" id="example-url-twt">
+      <div class="col alert alert-danger" role="alert"
+        *ngIf="rfContact.get('social.facebook')?.errors?.required && rfContact.get('social.facebook')?.touched">
+        Facebook is required!
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-url-web" class="col-md-2 col-form-label">Website:</label>
-      <div class="col-md-10">
-        <input class="form-control" type="url" id="example-url-web">
+      <div class="form-group row">
+        <label for="example-url-twt" class="col-md-2 col-form-label">Twitter:</label>
+        <div class="col-md-10">
+          <input class="form-control" type="url" id="example-url-twt" formControlName="twitter">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-tel-input" class="col-md-2 col-form-label">Tel:</label>
-      <div class="col-md-10">
-        <input class="form-control" type="tel" id="example-tel-input">
+      <div class="form-group row">
+        <label for="example-url-web" class="col-md-2 col-form-label">Website:</label>
+        <div class="col-md-10">
+          <input class="form-control" type="url" id="example-url-web" formControlName="website">
+        </div>
+      </div>
+    </fieldset>
+    <div formArrayName="tels" *ngIf="tels.controls.length">
+      <div class="form-group row" *ngFor="let c of tels.controls; index as i">
+        <label for="example-tel-input" class="col-md-2 col-form-label">Tel:</label>
+        <div class="col-md-10">
+          <input class="form-control" type="tel" id="example-tel-input" [formControlName]="i">
+          <div class="text-right">
+            <button class="btn btn-info" (click)="addTel()">+</button>
+            <button class="btn btn-danger" (click)="removeTel(i)" *ngIf="tels.controls.length > 1">-</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="form-group row">
@@ -43,3 +60,4 @@
     </div>
   </div>
 </form>
+<pre>{{ rfContact.value | json }}</pre>

@@ -1,5 +1,6 @@
+import { FormArray } from '@angular/forms/forms';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'tpc-contact-reactive-form',
@@ -8,23 +9,38 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ContactReactiveFormComponent implements OnInit {
   rfContact: FormGroup;
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.rfContact = new FormGroup({
-      contactName: new FormControl(),
-      email: new FormControl(),
-      social: new FormGroup({
-        facebook: new FormControl(),
-        twitter: new FormControl(),
-        website: new FormControl()
+    this.rfContact = this.fb.group({
+      contactName: ['', [Validators.required, Validators.minLength(3)]],
+      email: '',
+      social: this.fb.group({
+        facebook: ['', [Validators.required, Validators.minLength(3)]],
+        twitter: '',
+        website: ''
       }),
-      tel: new FormControl()
+      tels: this.fb.array([
+        this.fb.control('')
+      ])
     });
+  }
+
+  get tels(): FormArray {
+    return this.rfContact.get('tels') as FormArray;
+  }
+
+  addTel() {
+    this.tels.push(this.fb.control(''));
+  }
+
+  removeTel(index: number) {
+    this.tels.removeAt(index);
   }
 
   onSubmit() {
     // Do something awesome
     console.log(this.rfContact);
   }
+
 }
