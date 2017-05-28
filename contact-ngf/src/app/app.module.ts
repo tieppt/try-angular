@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,7 @@ import { CollapseGroupComponent } from './collapse-group/collapse-group.componen
 import { CollapseComponent } from './collapse/collapse.component';
 import { TempConverterPipe } from './pipes/temp-converter.pipe';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,13 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     CollapseGroupComponent,
     CollapseComponent,
     TempConverterPipe,
-    ContactFormComponent
+    ContactFormComponent,
+    ContactReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [],
