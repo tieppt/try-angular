@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="col alert alert-danger" role="alert"
-        *ngIf="rfContact.get('social.facebook')?.errors?.required && rfContact.get('social.facebook')?.touched">
+        *ngIf="rfContact.get('social.facebook')?.hasError('required') && rfContact.get('social.facebook')?.touched">
         Facebook is required!
       </div>
       <div class="form-group row">
