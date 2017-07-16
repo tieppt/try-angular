@@ -1,0 +1,40 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)"
+  class="col-md-6 offset-md-3">
+  <div class="form-group row">
+    <label class="col">
+      Email
+      <input type="email" class="form-control" ngModel name="username"
+        [forbiddenUsername]="list" #emailAdd="ngModel">
+    </label>
+  </div>
+  <div class="col alert alert-danger" role="alert"
+    *ngIf="emailAdd.errors?.invalidusername && emailAdd.touched">
+    Email is invalid!
+  </div>
+  <div ngModelGroup="pw" #pw="ngModelGroup">
+    <div class="form-group row">
+      <label class="col">
+        Password
+        <input type="password" class="form-control" ngModel name="password">
+      </label>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        Confirm Password
+        <input type="password" class="form-control" ngModel name="confirmPassword">
+      </label>
+    </div>
+    <div class="col alert alert-danger" role="alert"
+      *ngIf="pw.errors?.confirmPassword && pw.touched">
+      Password does not match!
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-info" type="submit">Submit</button>
+     <button class="btn btn-primary" type="button"
+      (click)="toggle()"
+    >
+      Toggle validate admin
+    </button>
+  </div>
+</form>

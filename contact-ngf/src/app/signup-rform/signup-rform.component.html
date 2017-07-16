@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()"
+   class="col-md-6 offset-md-3">
+  <div class="form-group row">
+    <label class="col">
+      Email
+      <input type="email" class="form-control" formControlName="username">
+    </label>
+  </div>
+  <div class="col alert alert-danger" role="alert"
+    *ngIf="form.get('username').hasError('invalidusername') &&
+      form.get('username').touched">
+    Invalid Username!
+  </div>
+  <div formGroupName="pw">
+    <div class="form-group row">
+      <label class="col">
+        Password
+        <input type="password" class="form-control"
+          formControlName="password">
+      </label>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        Confirm Password
+        <input type="password" class="form-control"
+          formControlName="confirmPassword">
+      </label>
+    </div>
+    <div class="col alert alert-danger" role="alert"
+      *ngIf="form.get('pw').hasError('passwordnotmatch') &&
+        form.get('pw').touched">
+      Password does not match!
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-info" type="submit">Submit</button>
+  </div>
+
+</form>
