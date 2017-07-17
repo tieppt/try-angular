@@ -7,7 +7,7 @@
     </label>
   </div>
   <div class="col alert alert-danger" role="alert"
-    *ngIf="form.get('username').hasError('invalidusername') &&
+    *ngIf="form.hasError('invalidusername', ['username']) &&
       form.get('username').touched">
     Invalid Username!
   </div>
@@ -27,7 +27,7 @@
       </label>
     </div>
     <div class="col alert alert-danger" role="alert"
-      *ngIf="form.get('pw').hasError('passwordnotmatch') &&
+      *ngIf="form.hasError('passwordnotmatch', ['pw']) &&
         form.get('pw').touched">
       Password does not match!
     </div>
